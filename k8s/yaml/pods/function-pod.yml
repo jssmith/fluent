@@ -33,6 +33,12 @@ spec:
       value: ROUTE_ADDR_DUMMY
     - name: MGMT_IP
       value: MGMT_IP_DUMMY
+    - name: REPO_ORG
+      value: vsreekanti
+    - name: REPO_BRANCH
+      value: func-scheduling
+    - name: SCHED_IPS
+      value: ''
     volumeMounts:
     - mountPath: /requests
       name: ipc
@@ -43,6 +49,10 @@ spec:
       value: ROUTE_ADDR_DUMMY
     - name: MGMT_IP
       value: MGMT_IP_DUMMY
+    - name: REPO_ORG
+      value: vsreekanti
+    - name: REPO_BRANCH
+      value: func-scheduling
     volumeMounts:
     - mountPath: /requests
       name: ipc

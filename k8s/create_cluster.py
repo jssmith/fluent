@@ -20,7 +20,9 @@ import json
 import kubernetes as k8s
 import sys
 import time
+import os
 from util import *
+from pathlib import Path
 
 ec2_client = boto3.client('ec2', 'us-east-1')
 
@@ -182,9 +184,12 @@ if __name__ == '__main__':
         conf_file = sys.argv[6]
 
     if len(sys.argv) <= 7:
-        ssh_key = '/home/ubuntu/.ssh/id_rsa'
+        ssh_key = os.path.join(str(Path.home()), '.ssh/id_rsa')
     else:
         ssh_key = sys.argv[7]
+    if not os.path.isfile(ssh_key):
+        print("no file found for ssh key %s" % ssh_key)
+        exit(1)
 
     create_cluster(mem, ebs, func, route, bench, conf_file, ssh_key,
             cluster_name, kops_bucket, aws_key_id, aws_key)

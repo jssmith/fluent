@@ -31,5 +31,9 @@ spec:
       value: KOPS_BUCKET_DUMMY
     - name: NAME
       value: CLUSTER_NAME
+    - name: REPO_ORG
+      value: vsreekanti
+    - name: REPO_BRANCH
+      value: func-scheduling
   nodeSelector:
     role: general
