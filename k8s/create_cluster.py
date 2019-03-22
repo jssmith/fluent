@@ -59,7 +59,7 @@ def create_cluster(mem_count, ebs_count, func_count, route_count, bench_count,
     # copy kube config file to kops pod, so it can execute kubectl commands
     kops_podname = kops_spec['metadata']['name']
     kcname = kops_spec['spec']['containers'][0]['name']
-    copy_file_to_pod(client, '/home/ubuntu/.kube/config', kops_podname,
+    copy_file_to_pod(client, os.path.join(str(Path.home()), '.kube/config'), kops_podname,
             '/root/.kube/', kcname)
     copy_file_to_pod(client, ssh_key, kops_podname, '/root/.ssh/', kcname)
     copy_file_to_pod(client, ssh_key + '.pub', kops_podname,
