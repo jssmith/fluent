@@ -85,6 +85,10 @@ tags
 ################################################################################
 # Compiled Object files
 __pycache__/
+*.pyc
 
 # Compiled protobuf files
 *_pb2.py
+
+# Egg metadata
+*.egg-info
